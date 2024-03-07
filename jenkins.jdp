@@ -29,7 +29,8 @@ pipeline {
         }
         stage('Deploy'){
             steps {
-                echo 'Deploy Success'
+                deploy adapters: [tomcat8(path: '', url: 'http://172.31.8.241:8080')], contextPath: '/', war: '**/*.war'
+
             }
         }
     }
